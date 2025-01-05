@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Quay Số</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <audio id="spin-sound" src="nhacquayso.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="trungthuong.mp3" preload="auto"></audio>
+
+    <div class="container">
+        <!-- <h1>Lucky Draw</h1> -->
+        <div id="box-container"></div>
+        <button id="start-button">Quay Số</button>
+        <button id="clear-button">Clear</button>
+        <h2>Kết Quả</h2>
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên Nhân viên</th>
+                    <th>Mã Nhân viên</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Xin Chúc Mừng!!</h2>
+            <p id="winning-number"></p>
+            <p id="winning-name"></p>
+            <button id="close-popup">Đóng</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

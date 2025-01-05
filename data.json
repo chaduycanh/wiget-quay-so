@@ -1,0 +1,29 @@
+{
+  "customers": [
+    { "number": "3000013193", "name": "Nguyễn Thị Mỹ Hiền" },
+    { "number": "3000020854", "name": "Nguyễn Thị Kiều Trang" },
+    { "number": "3000023496", "name": "Nguyễn Chí Nguyện" },
+    { "number": "3000024012", "name": "Nguyễn Phương Dung" },
+    { "number": "3000025559", "name": "Đỗ Thị Ngọc Châu" },
+    { "number": "3000025976", "name": "Trần Gia Khương" },
+    { "number": "3000026136", "name": "Đào Thị Ngọc Thùy" },
+    { "number": "3000026258", "name": "Châu Thị Sương" },
+    { "number": "3000027042", "name": "Trần Gia Bảo" },
+    { "number": "3000027048", "name": "Nguyễn Đặng Thủy Tiên" },
+    { "number": "3000027163", "name": "Nguyễn Trọng Hiến" },
+    { "number": "3000027305", "name": "Lê Thanh Trung" },
+    { "number": "3000028491", "name": "Nguyễn Thị Thanh Diệu" },
+    { "number": "3000028659", "name": "Phạm Công Thiện" },
+    { "number": "3000028773", "name": "Đinh Xuân Hồng" },
+    { "number": "3000028995", "name": "Trang Thanh Thanh" },
+    { "number": "3000029264", "name": "Nguyễn Việt Đức" },
+    { "number": "3000029267", "name": "Đinh Thị Ngọc Bích" },
+    { "number": "3000029325", "name": "Nguyễn Như Hiếu" },
+    { "number": "3000029439", "name": "Trần Thanh Huy" },
+    { "number": "3000029885", "name": "Trần Thị Mai Trang" },
+    { "number": "3000029917", "name": "Nguyễn Trung Tín" },
+    { "number": "3000029974", "name": "Đặng Thị Hằng" },
+    { "number": "3000028369", "name": "Đỗ Thị Thu Sương" },
+    { "number": "3000023705", "name": "Trần Huỳnh Tuyết Ngọc" }
+  ]
+}
