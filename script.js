@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const spinSound = document.getElementById("spin-sound"); // Đối tượng âm thanh quay số
     const winSound = document.getElementById("win-sound"); // Đối tượng âm thanh trúng thưởng
 
-    const delay = 100; // Độ trễ khi quay (ms)
+    const delay = 50; // Độ trễ khi quay (ms)
     let customers = []; // Mảng chứa khách hàng
     let selectedCustomer = {}; // Khách hàng được chọn
     let resultCounter = 1; // Đếm số kết quả đã trúng
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Slow down the last box
             if (i === digits.length - 1) {
-                await spinBox(box, digits[i], 150); // Increase delay for last box
+                await spinBox(box, digits[i], 250); // Increase delay for last box
             } else {
                 await spinBox(box, digits[i], delay); // Regular delay for other boxes
             }
