@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Ensure the body takes up the full height */
+    height: 110vh; /* Ensure the body takes up the full height */
 }
 
 /* Styling for the container */
