@@ -2,15 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const boxContainer = document.getElementById("box-container");
     const startButton = document.getElementById("start-button");
     const clearButton = document.getElementById("clear-button");
+    const employeesButton = document.getElementById("employees-button");
     const resultsTable = document.getElementById("results-table").querySelector("tbody");
+    const employeesTable = document.getElementById("employees-table");
+    const employeesTableBody = employeesTable ? employeesTable.querySelector("tbody") : null;
     const popup = document.getElementById("popup");
+    const employeesModal = document.getElementById("employees-modal");
     const winningNumberElement = document.getElementById("winning-number");
     const closePopupButton = document.getElementById("close-popup");
+    const closeEmployeesButton = document.getElementById("close-employees");
     const spinSound = document.getElementById("spin-sound"); // Đối tượng âm thanh quay số
     const winSound = document.getElementById("win-sound"); // Đối tượng âm thanh trúng thưởng
 
     const delay = 50; // Độ trễ khi quay (ms)
-    let customers = []; // Mảng chứa khách hàng
+    let customers = []; // Mảng chứa khách hàng sẽ quay
+    let allCustomers = []; // Giữ bản đầy đủ để hiển thị
     let selectedCustomer = {}; // Khách hàng được chọn
     let resultCounter = 1; // Đếm số kết quả đã trúng
 
@@ -28,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchCustomers() {
         const response = await fetch("data.json");
         const data = await response.json();
-        customers = [...data.customers];
+        allCustomers = [...data.customers];
+        customers = [...allCustomers];
+        renderEmployeesTable(allCustomers);
     }
 
     // Đọc kết quả trúng từ file JSON
@@ -175,6 +183,26 @@ document.addEventListener("DOMContentLoaded", () => {
         resultsTable.appendChild(row);
     }
 
+    function renderEmployeesTable(list) {
+        if (!employeesTableBody) return;
+        employeesTableBody.innerHTML = "";
+        list.forEach((customer, index) => {
+            const row = document.createElement("tr");
+            const stt = document.createElement("td");
+            const name = document.createElement("td");
+            const number = document.createElement("td");
+
+            stt.textContent = index + 1;
+            name.textContent = customer.name;
+            number.textContent = customer.number;
+
+            row.appendChild(stt);
+            row.appendChild(name);
+            row.appendChild(number);
+            employeesTableBody.appendChild(row);
+        });
+    }
+
     // Xóa bảng kết quả
     function resetTable() {
         resultsTable.innerHTML = "";
@@ -195,6 +223,23 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopupButton.addEventListener("click", () => {
         popup.style.display = "none"; // Ẩn popup
     });
+
+    if (employeesButton && employeesModal && closeEmployeesButton) {
+        employeesButton.addEventListener("click", () => {
+            renderEmployeesTable(allCustomers);
+            employeesModal.classList.add("open");
+        });
+
+        closeEmployeesButton.addEventListener("click", () => {
+            employeesModal.classList.remove("open");
+        });
+
+        employeesModal.addEventListener("click", (event) => {
+            if (event.target === employeesModal) {
+                employeesModal.classList.remove("open");
+            }
+        });
+    }
 
     // Gắn sự kiện cho nút bấm
     startButton.addEventListener("click", spinBoxesSequentially);

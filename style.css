@@ -1,111 +1,338 @@
-/* Set the background image for the entire body */
-body {
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
+:root {
+    --bg: #120a02;
+    --bg-accent: #2b1303;
+    --card: rgba(34, 17, 4, 0.92);
+    --card-border: rgba(255, 210, 130, 0.25);
+    --text: #fff8e7;
+    --muted: #cdbf9f;
+    --accent: #f7c457;
+    --accent-alt: #fbe8b2;
+    --success: #ffe8a3;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 110vh; /* Ensure the body takes up the full height */
 }
 
-/* Styling for the container */
-.container {
-    text-align: center;
-    padding: 50px;
-    color: white;
-}
-
-/* Box container for the lucky draw boxes */
-#box-container {
+body {
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    min-height: 100vh;
+    color: var(--text);
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    align-items: flex-start;
+    padding: 40px 20px 60px;
+    position: relative;
+    background: linear-gradient(145deg, #fdf3dc 0%, #f7deb3 45%, #eac083 100%);
+}
+
+.container {
+    width: min(1200px, 95vw);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero {
+    text-align: center;
+    background: linear-gradient(145deg, rgba(75, 43, 7, 0.95), rgba(45, 21, 3, 0.9));
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px 24px 36px;
+    box-shadow: 0 25px 70px rgba(12, 5, 0, 0.65);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.4rem);
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.75rem;
+    color: rgba(255, 218, 150, 0.85);
+    margin-bottom: 6px;
+}
+
+.panel {
+    background: linear-gradient(160deg, rgba(51, 24, 5, 0.95), rgba(30, 12, 1, 0.9));
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(10, 4, 0, 0.6);
+}
+
+.draw-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.digit-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    min-height: 120px;
 }
 
 .box {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    background-color: rgb(40 2 2 / 52%);
+    width: 90px;
+    height: 110px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 210, 130, 0.3);
+    background: linear-gradient(160deg, rgba(255, 244, 214, 0.15), rgba(55, 23, 0, 0.75));
+    font-size: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
-    border-radius: 5px;
-    color: white;
-    border: 2px solid white;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Buttons Styling */
+.box.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 25px rgba(244, 200, 106, 0.6);
+    transform: translateY(-4px);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    margin: 10px;
+    font-family: inherit;
+    border-radius: 999px;
+    padding: 14px 32px;
+    font-size: 1rem;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    color: var(--text);
 }
 
-button:hover {
-    background-color: #45a049;
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
-/* Styling for the results table */
+button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.accent {
+    background: linear-gradient(135deg, #fbe18c, #f4c86a);
+    color: #2c2512;
+    box-shadow: 0 18px 34px rgba(244, 200, 106, 0.45);
+}
+
+.ghost {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 210, 130, 0.3);
+    color: var(--text);
+}
+
+.outline {
+    background: transparent;
+    border: 1px solid rgba(255, 232, 176, 0.8);
+    color: var(--accent-alt);
+}
+
+.results-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-heading h2 {
+    font-size: 2rem;
+}
+
+.table-wrapper {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 214, 140, 0.45);
+    overflow: hidden;
+    background: linear-gradient(140deg, rgba(61, 27, 4, 0.95), rgba(40, 14, 1, 0.92));
+    box-shadow: inset 0 0 0 1px rgba(255, 214, 140, 0.18);
+}
+
 table {
-    margin-top: 20px;
     width: 100%;
     border-collapse: collapse;
-    color: white;
+    color: var(--text);
 }
 
-th, td {
-    padding: 10px;
+th,
+td {
+    padding: 14px 18px;
     text-align: center;
-    border: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 th {
-    background-color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
 }
 
-/* Popup Styling */
+#results-table thead th {
+    background-color: rgba(255, 214, 140, 0.18);
+    color: #fce9b1;
+}
+
+#results-table tbody td {
+    font-size: 1rem;
+}
+
+#results-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 224, 164, 0.05);
+}
+
+#results-table tbody tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#results-table tbody tr:hover {
+    background-color: rgba(255, 224, 164, 0.14);
+    transform: translateY(-2px);
+}
+
 .popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    inset: 0;
+    background-color: rgba(18, 8, 0, 0.88);
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    backdrop-filter: blur(4px);
 }
 
 .popup-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
+    background: linear-gradient(145deg, rgba(84, 46, 5, 0.95), rgba(43, 18, 1, 0.92));
+    padding: 32px;
+    border-radius: 20px;
     text-align: center;
-    width: 300px;
+    width: min(360px, 90vw);
+    border: 1px solid rgba(255, 210, 130, 0.4);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
 .popup h2 {
-    color: #4CAF50;
+    color: var(--success);
+    margin-bottom: 12px;
 }
 
 #close-popup {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #f4c86a, #f8da9d);
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    color: #1f1604;
 }
 
-#close-popup:hover {
-    background-color: #e60000;
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 8, 0, 0.82);
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    z-index: 9998;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    background-color: rgba(52, 26, 5, 0.95);
+    border-radius: 18px;
+    width: min(900px, 96vw);
+    max-height: 85vh;
+    padding: 26px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    border: 1px solid rgba(255, 214, 140, 0.35);
+    color: var(--text);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal-body {
+    overflow-y: auto;
+    max-height: calc(85vh - 90px);
+}
+
+.close-modal {
+    background: transparent;
+    border: 1px solid rgba(244, 200, 106, 0.5);
+    color: var(--accent);
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.close-modal:hover {
+    background-color: rgba(244, 200, 106, 0.15);
+}
+
+#employees-table thead th {
+    background-color: rgba(255, 214, 140, 0.12);
+}
+
+#employees-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 224, 164, 0.04);
+}
+
+#employees-table tbody tr:hover {
+    background-color: rgba(255, 224, 164, 0.1);
+}
+
+@media (max-width: 768px) {
+    .panel {
+        padding: 24px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .digit-strip {
+        gap: 10px;
+    }
+
+    .box {
+        width: 70px;
+        height: 90px;
+        font-size: 36px;
+    }
 }
