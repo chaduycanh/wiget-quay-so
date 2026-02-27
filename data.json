@@ -1,36 +1,5 @@
 {
   "customers": [
-   { "number": "3000014762", "name": "Nguyễn Thị Thu Nga" },
-  { "number": "3000029493", "name": "Nguyễn Thị Thanh Huyền" },
-  { "number": "3000030043", "name": "Phạm Thị Thùy Linh" },
-  { "number": "2014004731", "name": "Nguyễn Thị Lan" },
-  { "number": "3000028101", "name": "Lê Minh Quân" },
-  { "number": "2012002614", "name": "Dương Thị Định" },
-  { "number": "3000025227", "name": "Nguyễn Minh Hằng" },
-  { "number": "3000029777", "name": "Hoàng Thị Thu Hương" },
-  { "number": "3000026152", "name": "Trần Ngọc Anh" },
-  { "number": "3000006381", "name": "Đỗ Đình Hiếu" },
-  { "number": "3000028102", "name": "Dương Duy Thành" },
-  { "number": "3000031496", "name": "Nguyễn Thị Lan Hương" },
-  { "number": "3000012486", "name": "Nguyễn Ngọc Sơn" },
-  { "number": "3000014605", "name": "Nguyễn Thị Mai" },
-  { "number": "3000016223", "name": "Nguyễn Trà My" },
-  { "number": "2012102684", "name": "Trần Chí Kiên" },
-  { "number": "3000028083", "name": "Hoàng Thị Hồng Nhung" },
-  { "number": "3000031009", "name": "Nguyễn Thị Cúc" },
-  { "number": "3000032038", "name": "Đặng Thị Nhung" },
-  { "number": "3000031703", "name": "Nguyễn Thị Hồng" },
-  { "number": "3000031008", "name": "Hoàng Tùng Lâm" },
-  { "number": "3000031710", "name": "Đỗ Thị Dung Quỳnh" },
-  { "number": "3000014308", "name": "Phạm Ngọc Hiền Linh" },
-  { "number": "3000023364", "name": "Lê Hồng Nhung" },
-  { "number": "3000029219", "name": "Nguyễn Mai Phương" },
-  { "number": "3000025815", "name": "Trần Minh Phương" },
-  { "number": "3000032443", "name": "Bùi Thị Nguyệt" },
-  { "number": "3000032810", "name": "Bùi Hải Yến" },
-  { "number": "3000032036", "name": "Lê Tuấn Anh" },
-  { "number": "3000026258", "name": "Châu Thị Sương" },
-  { "number": "3000028369", "name": "Đỗ Thị Thu Sương" },
-  { "number": "3000027042", "name": "Trân Gia Bảo" }
+
   ]
 }
